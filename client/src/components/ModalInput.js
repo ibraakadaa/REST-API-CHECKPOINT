@@ -12,7 +12,10 @@ export default function Example({person}) {
     const [personInfo, setPersonInfo] = useState(person);
     const dispatch = useDispatch();
     const handleChange =(e)=>{
-        setPersonInfo({...personInfo,[e.target.name]:e.target.value})
+      if(e.target.name==="age")
+      setPersonInfo({...personInfo,[e.target.name]:Number(e.target.value)})
+
+   else        setPersonInfo({...personInfo,[e.target.name]:e.target.value})
         }
     const handleSubmit=(e)=>{
             e.preventDefault()
